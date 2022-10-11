@@ -11,7 +11,12 @@ endValue = parseInt(endValue);
 
 
 if(Number.isInteger(startValue) && Number.isInteger(endValue)){
-let numbers = generateNumbers(startValue,endValue);
+
+// generate the numbers based on user input
+    let numbers = generateNumbers(startValue,endValue);
+
+// display results on page
+ displayNumbers(numbers);
 
 }else{
     swal.fire({
@@ -35,7 +40,21 @@ function generateNumbers(startValue, endValue){
 }
 
 
-function displayNumbers(){
+function displayNumbers(numbers){
+let className="even";
+let templateRows="";
+for(let i = 0; i < numbers.length; i++){
+        let number = numbers[i];
 
+        if(number % 2 == 0){
+ className="even";
+        }else{
+className="odd";
+        }
+
+        templateRows += `<tr><td class="${className}">${number}</td></tr> `;
+}
+
+document.getElementById("results").innerHTML = templateRows;
 
 }
