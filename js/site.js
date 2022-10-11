@@ -51,8 +51,16 @@ for(let i = 0; i < numbers.length; i++){
         }else{
 className="odd";
         }
+        
+        if ( i % 10 == 0) { 
+            templateRows += "<tr>";
+        }
 
-        templateRows += `<tr><td class="${className}">${number}</td></tr> `;
+        templateRows += `<td class="${className}">${number}</td> `;
+
+        if((i + 1) % 10 == 0 ){
+            templateRows +="</tr>"
+        }
 }
 
 document.getElementById("results").innerHTML = templateRows;
